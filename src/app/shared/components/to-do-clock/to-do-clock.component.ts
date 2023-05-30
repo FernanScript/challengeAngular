@@ -8,20 +8,16 @@ import { format } from 'date-fns';
 })
 export class ToDoClockComponent  implements OnInit {
 
-  // currentTime !: string;
+  dayMonth !: string;
+  hourMinute !: string;
 
   constructor() { }
 
-  ngOnInit() {}
-
-  // getCurrentTime() {
-  //   setInterval( () => {
-  //     this.currentTime = format(new Date(), 'dd:MM');
-  //   }, 1000);
-  // }
-
-  date = new Date();
-  formattedDate = format(this.date, 'dd MMMM');
-  horaMinuto = format(this.date, 'HH:mm a');
-
+  ngOnInit() {
+    setInterval( () => {
+      const date = new Date();
+      this.dayMonth = format(date, 'dd MMMM');
+      this.hourMinute = format(date, 'HH:mm a');
+    }, 1000);
+  }
 }
