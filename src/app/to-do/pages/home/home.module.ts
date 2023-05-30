@@ -13,6 +13,7 @@ import { SearchTaskComponent } from '../ver-mas/components/search-task/search-ta
 import { ToDoFinishedComponent } from '../../components/to-do-finished/to-do-finished.component';
 import { ToDoModalComponent } from '../../components/to-do-modal/to-do-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { ToDoCardsComponent } from '../../components/to-do-cards/to-do-cards.component';
 
 @NgModule({
   imports: [
@@ -25,10 +26,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
   declarations: [
     HomePage,
     ToDoEarringComponent,
-    ListTaskComponent,
-    SearchTaskComponent,
     ToDoFinishedComponent,
     ToDoModalComponent,
+    ToDoCardsComponent
   ]
 })
 export class HomePageModule {}

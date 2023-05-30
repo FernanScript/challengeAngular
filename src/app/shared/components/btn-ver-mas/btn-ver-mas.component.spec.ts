@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ToDoBtnModalComponent } from './to-do-btn-modal.component';
+import { BtnVerMasComponent } from './btn-ver-mas.component';
 
-describe('ToDoBtnModalComponent', () => {
-  let component: ToDoBtnModalComponent;
-  let fixture: ComponentFixture<ToDoBtnModalComponent>;
+describe('BtnVerMasComponent', () => {
+  let component: BtnVerMasComponent;
+  let fixture: ComponentFixture<BtnVerMasComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToDoBtnModalComponent ],
+      declarations: [ BtnVerMasComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ToDoBtnModalComponent);
+    fixture = TestBed.createComponent(BtnVerMasComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

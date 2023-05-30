@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { formatDistance, subDays } from 'date-fns'
+import { format } from 'date-fns';
 
 @Component({
   selector: 'to-do-clock',
@@ -8,10 +8,20 @@ import { formatDistance, subDays } from 'date-fns'
 })
 export class ToDoClockComponent  implements OnInit {
 
+  // currentTime !: string;
+
   constructor() { }
 
   ngOnInit() {}
 
-  
+  // getCurrentTime() {
+  //   setInterval( () => {
+  //     this.currentTime = format(new Date(), 'dd:MM');
+  //   }, 1000);
+  // }
+
+  date = new Date();
+  formattedDate = format(this.date, 'dd MMMM');
+  horaMinuto = format(this.date, 'HH:mm a');
 
 }

@@ -1,3 +1,44 @@
-<p>
-  to-do-modal works!
-</p>
+<ion-modal #modal trigger="open-modal" [initialBreakpoint]="1" [breakpoints]="[0, 1]">
+  <ng-template>
+    <div class="block">
+      <ion-text color="primary">
+        <h2>Crear nueva tarea</h2>
+        <hr>
+      </ion-text>
+      <form class="container-form">
+        <ion-input 
+          class="margin-input"
+          [label]="titleTask" 
+          label-placement="floating" 
+          fill="outline" 
+          [placeholder]="placeholderTask">
+        </ion-input>
+
+        <ion-select [label]="categoryTask" label-placement="floating" fill="outline">
+          <ion-select-option value="">Trabajo</ion-select-option>
+          <ion-select-option value="">Universidad</ion-select-option>
+          <ion-select-option value="">Compras</ion-select-option>
+        </ion-select>
+
+        <ion-textarea 
+          [label]="descriptionTask" 
+          labelPlacement="floating" 
+          fill="outline" 
+          [placeholder]="descriptionText">
+        </ion-textarea>
+
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+
+        <div class="container-btn">
+          <ion-button (click)="modal.dismiss()" fill="outline">Cancelar</ion-button>
+          <ion-button>Crear</ion-button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+</ion-modal>

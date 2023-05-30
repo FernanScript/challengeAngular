@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ToDoRoutingModule } from './to-do-routing.module';
 import { HomePageModule } from './pages/home/home.module';
 import { VerMasPageModule } from './pages/ver-mas/ver-mas.module';
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -12,7 +13,8 @@ import { VerMasPageModule } from './pages/ver-mas/ver-mas.module';
     CommonModule,
     ToDoRoutingModule,
     HomePageModule,
-    VerMasPageModule
+    VerMasPageModule,
+    SharedModule
   ]
 })
 export class ToDoModule { }

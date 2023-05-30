@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ToDoEarringComponent  implements OnInit {
 
+  title : string = 'Por hacer';
+
   constructor() { }
 
   ngOnInit() {}

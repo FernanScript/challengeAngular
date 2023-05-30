@@ -1,21 +1,26 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ToDoClockComponent } from './components/to-do-clock/to-do-clock.component';
-import { ToDoBtnModalComponent } from './components/to-do-btn-modal/to-do-btn-modal.component';
+
+import { IonicModule } from '@ionic/angular';
+import { BtnVerMasComponent } from './components/btn-ver-mas/btn-ver-mas.component';
+import { RouterModule } from '@angular/router';
 
 
 
 @NgModule({
   declarations: [
     ToDoClockComponent,
-    ToDoBtnModalComponent
+    BtnVerMasComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    IonicModule,
+    RouterModule
   ],
   exports : [
     ToDoClockComponent,
-    ToDoBtnModalComponent
+    BtnVerMasComponent
   ]
 })
 export class SharedModule { }

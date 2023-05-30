@@ -7,6 +7,8 @@ import { IonicModule } from '@ionic/angular';
 import { VerMasPageRoutingModule } from './ver-mas-routing.module';
 
 import { VerMasPage } from './ver-mas.page';
+import { SearchTaskComponent } from './components/search-task/search-task.component';
+import { ListTaskComponent } from './components/list-task/list-task.component';
 
 @NgModule({
   imports: [
@@ -15,6 +17,10 @@ import { VerMasPage } from './ver-mas.page';
     IonicModule,
     VerMasPageRoutingModule
   ],
-  declarations: [VerMasPage]
+  declarations: [
+    VerMasPage,
+    SearchTaskComponent,
+    ListTaskComponent
+  ]
 })
 export class VerMasPageModule {}
