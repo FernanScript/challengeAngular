@@ -5,7 +5,7 @@
         <h2>{{titleModal}}</h2>
         <hr>
       </ion-text>
-      <form class="container-form">
+      <form class="container-form" (ngSubmit)="emitTask()">
         <ion-input 
           [(ngModel)]="task"
           class="margin-input"
@@ -36,7 +36,7 @@
 
         <div class="container-btn">
           <ion-button class="btn-modal" (click)="modal.dismiss()" fill="outline">{{btnModalCancelar}}</ion-button>
-          <ion-button class="btn-modal">{{btnModalCrear}}</ion-button>
+          <ion-button type="submit" class="btn-modal">{{btnModalCrear}}</ion-button>
         </div>
       </form>
     </div>
