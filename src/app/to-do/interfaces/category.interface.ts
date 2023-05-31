@@ -1,4 +1,4 @@
 export interface Categories {
-    name : string;
-    color : string;
+    name : string[];
+    color : string[];
 }

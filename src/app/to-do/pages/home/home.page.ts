@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tasks } from '../../interfaces/task.interface';
+import { ToDoService } from '../../services/to-do.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomePage implements OnInit {
 
-  constructor() { }
+  // constructor( private taskService : ToDoService ) { }
 
   ngOnInit() {
   }
+
+  // addNewTasks(task:Tasks):void {
+  //   this.taskService
+  // }
 
 }

@@ -9,3 +9,15 @@ p{
 .font-title{
     font-size: 1rem;
 }
+
+.tachado {
+    text-decoration:line-through;
+}
+
+ion-checkbox {
+    // display: none;
+}
+
+ion-card {
+    border-bottom: 5px solid rgb(255, 88, 88);
+}

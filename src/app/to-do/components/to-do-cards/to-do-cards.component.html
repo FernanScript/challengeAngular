@@ -1,14 +1,45 @@
-<ion-card class="container-card">
-  <ion-card-header>
-    <ion-card-subtitle>30 Mayo 2023</ion-card-subtitle>
-    <ion-card-title class="font-title">Hacer ejercicio</ion-card-title>
-  </ion-card-header>
-  
-  <hr>
-  
-  <ion-card-content>
-    <ion-icon name="checkmark-circle"></ion-icon>
-    <p>Descripción:</p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati</p>
-  </ion-card-content>
-</ion-card>
+<swiper-container>
+
+  <swiper-slide>
+    <ion-card class="container-card">
+      <ion-card-header>
+        <ion-card-subtitle>30 Mayo 2023</ion-card-subtitle>
+        <ion-card-title [ngClass]="{ 'tachado' : tachado === true }" class="font-title flex-card">
+          {{title}}
+          <ion-checkbox (click)="lineThroughTask()"></ion-checkbox>
+        </ion-card-title>
+        <p>{{description}}</p>
+      </ion-card-header>
+      
+      <hr>
+      
+      <ion-card-content>
+        <p>Descripción:</p>
+        <p>{{description}}</p>
+      </ion-card-content>
+      
+    </ion-card>
+  </swiper-slide>
+
+  <swiper-slide>
+    <ion-card class="container-card">
+      <ion-card-header>
+        <ion-card-subtitle>30 Mayo 2023</ion-card-subtitle>
+        <ion-card-title [ngClass]="{ 'tachado' : title }" class="font-title flex-card">
+          {{title}}
+          <ion-checkbox></ion-checkbox>
+        </ion-card-title>
+        <p>{{description}}</p>
+      </ion-card-header>
+      
+      <hr>
+      
+      <ion-card-content>
+        <p>Descripción:</p>
+        <p>{{description}}</p>
+      </ion-card-content>
+      
+    </ion-card>
+  </swiper-slide>
+
+</swiper-container>
