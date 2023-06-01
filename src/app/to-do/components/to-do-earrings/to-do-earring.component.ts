@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ToDoService } from '../../services/to-do.service';
 import { Tasks } from '../../interfaces/task.interface';
 
 @Component({
-  selector: 'to-do-finished',
-  templateUrl: './to-do-finished.component.html',
-  styleUrls: ['./to-do-finished.component.scss'],
+  selector: 'to-do-earring',
+  templateUrl: './to-do-earring.component.html',
+  styleUrls: ['./to-do-earring.component.scss'],
 })
-export class ToDoFinishedComponent  implements OnInit {
+export class ToDoEarringComponent  implements OnInit {
 
-  title : string = 'Terminadas';
+  title : string = 'Por hacer';
 
   constructor( private taskService : ToDoService ) { }
 

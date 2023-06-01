@@ -8,11 +8,12 @@ import { IonicModule } from '@ionic/angular';
 import { HomePageRoutingModule } from './home-routing.module';
 
 import { HomePage } from './home.page';
-import { ToDoEarringComponent } from '../../components/to-do-earring/to-do-earring.component';
+import { ToDoEarringComponent } from '../../components/to-do-earrings/to-do-earring.component';
 import { ToDoFinishedComponent } from '../../components/to-do-finished/to-do-finished.component';
 import { ToDoModalComponent } from '../../components/to-do-modal/to-do-modal.component';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ToDoCardsComponent } from '../../components/to-do-cards/to-do-cards.component';
+import { ToDoCardsEarringsComponent } from '../../components/to-do-cards-earrings/to-do-cards-earrings.component';
+import { ToDoCardsFinishedComponent } from '../../components/to-do-cards-finished/to-do-cards-finished.component';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { ToDoCardsComponent } from '../../components/to-do-cards/to-do-cards.com
     ToDoEarringComponent,
     ToDoFinishedComponent,
     ToDoModalComponent,
-    ToDoCardsComponent
+    ToDoCardsEarringsComponent,
+    ToDoCardsFinishedComponent
   ],
   schemas : [
     CUSTOM_ELEMENTS_SCHEMA

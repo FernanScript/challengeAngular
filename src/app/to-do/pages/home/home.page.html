@@ -1,7 +1,7 @@
 
 <ion-content [fullscreen]="true">
   <to-do-clock></to-do-clock>
-  <to-do-earring></to-do-earring>
+  <to-do-earring ></to-do-earring>
   <to-do-finished></to-do-finished>
 </ion-content>
 
@@ -11,4 +11,4 @@
   </ion-fab-button>
 </ion-fab>
 
-<to-do-modal></to-do-modal>
+<to-do-modal (newTask)="addNewTasks($event)"></to-do-modal>

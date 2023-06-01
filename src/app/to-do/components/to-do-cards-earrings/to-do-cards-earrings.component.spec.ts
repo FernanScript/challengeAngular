@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { ToDoCardsComponent } from './to-do-cards.component';
+import { ToDoCardsEarringsComponent } from './to-do-cards-earrings.component';
 
-describe('ToDoCardsComponent', () => {
-  let component: ToDoCardsComponent;
-  let fixture: ComponentFixture<ToDoCardsComponent>;
+describe('ToDoCardsEarringsComponent', () => {
+  let component: ToDoCardsEarringsComponent;
+  let fixture: ComponentFixture<ToDoCardsEarringsComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ ToDoCardsComponent ],
+      declarations: [ ToDoCardsEarringsComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ToDoCardsComponent);
+    fixture = TestBed.createComponent(ToDoCardsEarringsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

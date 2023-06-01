@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
 
 @Component({
@@ -23,24 +23,20 @@ export class ToDoModalComponent  implements OnInit {
   optionsTask : string[] = ['Universidad','Trabajo','Compras'];
   colorTask : string[] = ['yellow','blue','orange'];
 
-  constructor() { }
-
   ngOnInit() {}
+
+  task:Tasks = {
+    name : '',
+    description : ''
+  };
 
   @Output()
   newTask = new EventEmitter<Tasks>();
 
-  task:Tasks = {
-      name : '',
-      description : '',
-      category : {
-        name : this.optionsTask,
-        color : this.colorTask
-      },
-      fechaFin : this.dateTask
-    }
-
   emitTask():void {
+
+    console.log(this.task)
+
     if(this.task.name.length === 0) return;
 
     this.newTask.emit(this.task);

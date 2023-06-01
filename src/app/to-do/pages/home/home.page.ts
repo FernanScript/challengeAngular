@@ -9,13 +9,13 @@ import { ToDoService } from '../../services/to-do.service';
 })
 export class HomePage implements OnInit {
 
-  // constructor( private taskService : ToDoService ) { }
+  constructor( private taskService : ToDoService ) { }
 
   ngOnInit() {
   }
 
-  // addNewTasks(task:Tasks):void {
-  //   this.taskService
-  // }
+  addNewTasks(task:Tasks):void {
+    this.taskService.addTask(task);
+  }
 
 }

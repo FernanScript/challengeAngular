@@ -1,0 +1,16 @@
+<!-- TAREAS TERMINADAS -->
+<ion-card *ngFor="let taskToDO of showTasks">
+  <ion-card-header>
+    <p>{{taskToDO.description}}</p>
+    <ion-card-title  [ngClass]="{ 'tachado' : tachado === true }" class="font-title flex-card">
+      {{taskToDO.name}}
+      <ion-checkbox (click)="lineThroughTask()"></ion-checkbox>
+    </ion-card-title>
+  </ion-card-header>
+  
+  <hr>
+  
+  <ion-card-content>
+    <p><strong>{{dayTask}}</strong>{{hourTask}}</p>
+  </ion-card-content>    
+</ion-card>
