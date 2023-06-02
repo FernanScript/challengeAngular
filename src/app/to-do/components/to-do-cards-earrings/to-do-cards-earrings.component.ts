@@ -17,6 +17,7 @@ export class ToDoCardsEarringsComponent  implements OnInit {
   description : string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati';
   dayTask : string = '15 mayo';
   hourTask : string = '11:50 AM'
+  taskEarringEmpty : string = 'No tienes tareas pendientes'
 
   @Input()
   public showTasks !: Tasks[];

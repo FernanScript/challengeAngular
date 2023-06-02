@@ -5,4 +5,5 @@ export interface Tasks {
     description : string;
     category ?: Categories;
     fechaFin ?: Date;
+    status ?: boolean;
 }

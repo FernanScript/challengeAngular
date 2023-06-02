@@ -7,9 +7,10 @@
       </ion-text>
       <form class="container-form" (ngSubmit)="emitTask()">
         <ion-input 
-          [(ngModel)]="task.name"
+          [(ngModel)]="task.name" [ngModelOptions]="{standalone: true}"
           class="margin-input"
           [label]="titleTask" 
+          required
           label-placement="floating" 
           fill="outline" 
           [placeholder]="placeholderTask">
@@ -20,9 +21,10 @@
         </ion-select>
 
         <ion-textarea 
-          [(ngModel)]="task.description"
+          [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}"
           [label]="descriptionTask" 
           labelPlacement="floating" 
+          required
           fill="outline" 
           [placeholder]="descriptionText">
         </ion-textarea>
@@ -36,7 +38,7 @@
 
         <div class="container-btn">
           <ion-button class="btn-modal" (click)="modal.dismiss()" fill="outline">{{btnModalCancelar}}</ion-button>
-          <ion-button type="submit" class="btn-modal">{{btnModalCrear}}</ion-button>
+          <ion-button (click)="presentToast('top')" type="submit" class="btn-modal">{{btnModalCrear}}</ion-button>
         </div>
       </form>
     </div>

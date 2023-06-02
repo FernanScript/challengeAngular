@@ -20,7 +20,9 @@ export class ToDoCardsFinishedComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
 
   lineThroughTask():void {
     this.tachado =! false

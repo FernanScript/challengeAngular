@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Tasks } from 'src/app/to-do/interfaces/task.interface';
 
 @Component({
@@ -8,7 +8,7 @@ import { Tasks } from 'src/app/to-do/interfaces/task.interface';
 })
 export class ListTaskComponent  implements OnInit {
 
-  isChecked : boolean = false;
+  taskListEmpty : string = 'Todas tus tareas apareceran aquí'
 
   constructor() { }
 
@@ -21,15 +21,7 @@ export class ListTaskComponent  implements OnInit {
     this.showTasks.splice(i,1);
   }
 
-  checkTask(i:number):void {
-    while (this.isChecked === false) {
-
-      this.isChecked = true;
-      
-    }
-  }
-
-  isCheckFalse():void {
-    this.isChecked = false;
+  checkTask(task:Tasks, i:number):void {
+    this.showTasks[i].status =! task.status
   }
 }
