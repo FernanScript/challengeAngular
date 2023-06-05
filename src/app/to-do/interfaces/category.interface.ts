@@ -1,4 +1,6 @@
-export interface Categories {
-    name : string[];
-    color : string[];
+export enum Categories {
+    Universidad = 'Universidad',
+    Trabajo     = 'Trabajo',
+    Compras     = 'Compras',
+    Casa        = 'Casa'
 }

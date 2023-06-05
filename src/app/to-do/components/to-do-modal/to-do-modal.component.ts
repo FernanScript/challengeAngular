@@ -1,6 +1,9 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
 import { ToastController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ToDoService } from '../../services/to-do.service';
+import { Categories } from '../../interfaces/category.interface';
 
 @Component({
   selector: 'to-do-modal',
@@ -8,6 +11,10 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./to-do-modal.component.scss'],
 })
 export class ToDoModalComponent  implements OnInit {
+
+  public formModal : FormGroup = this.fb.group({
+    category : ['', Validators.required]
+  });
 
   titleModal : string = 'Crear nueva tarea';
   btnModalCrear : string = 'Crear';
@@ -21,16 +28,22 @@ export class ToDoModalComponent  implements OnInit {
 
   dateTask = new Date();
 
-  optionsTask : string[] = ['Universidad','Trabajo','Compras'];
   colorTask : string[] = ['yellow','blue','orange'];
 
-  constructor(private toastController: ToastController) {}
+  constructor(
+    private toastController: ToastController,
+    private fb : FormBuilder,
+    private toDoService : ToDoService,
+    
+  ) {}
 
   ngOnInit() {}
 
   task:Tasks = {
     name : '',
-    description : ''
+    description : '',
+    category : this.category,
+    status : false
   };
 
   @Output()
@@ -41,7 +54,8 @@ export class ToDoModalComponent  implements OnInit {
     if(this.task.name.length === 0) return;
     this.newTask.emit(this.task);
 
-    this.task = { name : '', description : '' };
+    console.log(this.task);
+    this.task = { name : '', description : '', category : this.category, status : false};
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
@@ -57,9 +71,14 @@ export class ToDoModalComponent  implements OnInit {
     await toast.present();
   }
 
-  private emptyFields() {
-    if(this.task.name.length === 0 ){
-      return;
-    } 
+  // private emptyFields() {
+  //   if(this.task.name.length === 0 ){
+  //     return;
+  //   } 
+  // }
+
+  get category():Categories[] {
+    return this.toDoService.category;
   }
+
 }

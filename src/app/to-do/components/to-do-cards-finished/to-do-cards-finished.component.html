@@ -1,11 +1,16 @@
 <!-- TAREAS TERMINADAS -->
+<div class="tasksEmpty" *ngIf="showTasks.length === 0">
+  <ion-icon name="alert-circle-outline" color="primary" size="large"></ion-icon>
+  <h4>{{taskFinishedEmpty}}</h4>
+</div>
+
 <div *ngFor="let task of showTasks" >
   <ion-card *ngIf="task.status === true">
     <ion-card-header>
       <p>{{task.description}}</p>
-      <ion-card-title  [ngClass]="{ 'tachado' : tachado === true }" class="font-title flex-card">
+      <ion-card-title  [ngClass]="'tachado'" class="font-title flex-card">
         {{task.name}}
-        <ion-checkbox (click)="lineThroughTask()"></ion-checkbox>
+        <ion-icon name="checkmark-circle" color="primary" size="large"></ion-icon>
       </ion-card-title>
     </ion-card-header>
     

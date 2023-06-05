@@ -4,9 +4,8 @@
   <h4>{{taskEarringEmpty}}</h4>
 </div>
 <swiper-container>
-
   <swiper-slide *ngFor="let taskToDO of showTasks">
-    <ion-card class="container-card-p" [ngClass]="{'categoryColor': taskToDO.category}">
+    <ion-card *ngIf="taskToDO.status === false" class="container-card-p">
       <ion-card-header>
         <ion-card-subtitle>{{dayTask}}</ion-card-subtitle>
         <ion-card-title class="font-title flex-card">
@@ -23,26 +22,6 @@
     </ion-card>
     
   </swiper-slide>
-
-  
-  <!-- <swiper-slide>
-    <ion-card [ngClass]="{'container-card-p': true}">
-      <ion-card-header>
-        <ion-card-subtitle>{{dayTask}}</ion-card-subtitle>
-        <ion-card-title class="font-title flex-card">
-          {{taskContent.name}}
-        </ion-card-title>
-      </ion-card-header>
-      
-      <hr>
-      
-      <ion-card-content>
-        <p>{{titleDescription}}</p>
-        <p>{{taskContent.description}}</p>
-      </ion-card-content>
-      
-    </ion-card>
-  </swiper-slide> -->
 
 </swiper-container>
 

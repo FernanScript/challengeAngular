@@ -13,10 +13,12 @@ export class ToDoFinishedComponent  implements OnInit {
 
   constructor( private taskService : ToDoService ) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
   @Input()
-  public taskStatus !: Task[];
+  public taskStatus : Task[] = []
 
   get task():Tasks[] {
     return [...this.taskService.toDo];

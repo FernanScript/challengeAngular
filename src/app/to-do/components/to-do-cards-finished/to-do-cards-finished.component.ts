@@ -17,15 +17,12 @@ export class ToDoCardsFinishedComponent  implements OnInit {
   description : string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati';
   dayTask : string = '15 mayo';
   hourTask : string = '11:50 AM'
+  taskFinishedEmpty : string = 'No tienes tareas terminadas'
 
   constructor() { }
 
   ngOnInit() {
    
-  }
-
-  lineThroughTask():void {
-    this.tachado =! false
   }
 
 }
