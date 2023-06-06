@@ -9,13 +9,15 @@ import { VerMasPageRoutingModule } from './ver-mas-routing.module';
 import { VerMasPage } from './ver-mas.page';
 import { SearchTaskComponent } from './components/search-task/search-task.component';
 import { ListTaskComponent } from './components/list-task/list-task.component';
+import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    VerMasPageRoutingModule
+    VerMasPageRoutingModule,
+    PipesModule
   ],
   declarations: [
     VerMasPage,

@@ -10,3 +10,15 @@
     text-align: center;
     width: 50%;
 }
+
+.containerList{
+    display: flex;
+    align-items: center;
+}
+
+.categoryName{
+    font-size: .7rem;
+    font-style: italic;
+    margin: 0;
+    color: rgb(95, 95, 95);
+}

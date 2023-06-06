@@ -4,6 +4,6 @@ export interface Tasks {
     name : string;
     description : string;
     category : Categories;
-    fechaFin ?: Date;
+    fechaFin : string;
     status ?: boolean;
 }

@@ -29,7 +29,7 @@
           [placeholder]="descriptionText">
         </ion-textarea>
 
-        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+        <ion-datetime-button [(ngModel)]="task.fechaFin" [ngModelOptions]="{standalone: true}" ngDefaultControl datetime="datetime"></ion-datetime-button>
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
             <ion-datetime id="datetime"></ion-datetime>

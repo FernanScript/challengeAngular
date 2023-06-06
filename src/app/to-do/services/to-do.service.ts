@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Tasks } from '../interfaces/task.interface';
 import { Categories } from '../interfaces/category.interface';
-import { tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
@@ -34,16 +33,18 @@ export class ToDoService {
     localStorage.setItem('formTaskData', JSON.stringify(this.toDo));
   }
 
-  deleteTasksData():void {
-    // NO FUNCIONAN
-    // localStorage.removeItem(JSON.stringify(task));
-    // localStorage.removeItem(JSON.stringify(this.toDo));
-    // localStorage.clear();
+  deleteTasksData(index:number):void {
+    this.toDo.splice(index,1);
+    this.safeTasksData();
   }
 
   private loadStorage():void {
     if( !localStorage.getItem('formTaskData')) return;
 
     this.toDo = JSON.parse(localStorage.getItem('formTaskData')!);
+  }
+
+  searchTask(name:string):Tasks[] {
+    return this.toDo.filter( task => task.name.toLowerCase().includes(name.toLowerCase()) );
   }
 }

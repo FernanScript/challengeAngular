@@ -1,7 +1,10 @@
 <ion-item-sliding *ngFor="let listTask of showTasks; let i = index">
-  <ion-item>
+  <ion-item class="containerList">
     <ion-checkbox slot="start" [checked]="listTask.status"></ion-checkbox>
-    <ion-label>{{listTask.name}}</ion-label>
+    <div>
+      <p class="categoryName">{{listTask.category}}</p>
+      <ion-label>{{listTask.name}}</ion-label>
+    </div>
   </ion-item>
 
   <ion-item-options>

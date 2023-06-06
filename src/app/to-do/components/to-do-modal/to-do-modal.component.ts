@@ -4,6 +4,8 @@ import { ToastController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToDoService } from '../../services/to-do.service';
 import { Categories } from '../../interfaces/category.interface';
+import { format, getDay, getMonth, getYear, isDate } from 'date-fns';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'to-do-modal',
@@ -13,7 +15,8 @@ import { Categories } from '../../interfaces/category.interface';
 export class ToDoModalComponent  implements OnInit {
 
   public formModal : FormGroup = this.fb.group({
-    category : ['', Validators.required]
+    // category : ['', Validators.required],
+    date : ['', Validators.required]
   });
 
   titleModal : string = 'Crear nueva tarea';
@@ -26,15 +29,13 @@ export class ToDoModalComponent  implements OnInit {
   descriptionTask : string = "Descripción";
   descriptionText : string = "Agrega una descripción";
 
-  dateTask = new Date();
-
-  colorTask : string[] = ['yellow','blue','orange'];
-
   constructor(
     private toastController: ToastController,
     private fb : FormBuilder,
     private toDoService : ToDoService,
-  ) {}
+  ) {
+    
+  }
 
   ngOnInit() {
   }
@@ -43,6 +44,7 @@ export class ToDoModalComponent  implements OnInit {
     name : '',
     description : '',
     category : this.formModal.value,
+    fechaFin : format(new Date(), 'dd MMMM yyyy'),
     status : false
   };
 
@@ -54,7 +56,15 @@ export class ToDoModalComponent  implements OnInit {
     if(this.task.name.length === 0) return;
     this.newTask.emit(this.task);
 
-    this.task = { name : '', description : '', category :  this.formModal.value, status : false};
+    console.log(this.task)
+
+    this.task = { 
+      name : '', 
+      description : '', 
+      category : this.formModal.value, 
+      fechaFin : format(new Date(), 'dd MMMM yyyy'),
+      status : false
+    };
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {

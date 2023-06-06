@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
 import { ToDoService } from '../../services/to-do.service';
 
@@ -14,8 +14,14 @@ export class VerMasPage implements OnInit {
   ngOnInit() {
   }
 
+  filterTask !: string
+
   get listTask():Tasks[] {
     return this.taskService.toDo
+  }
+
+  onSearchChanged(task:string):void {
+    this.filterTask = task
   }
 
 }
