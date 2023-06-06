@@ -34,15 +34,15 @@ export class ToDoModalComponent  implements OnInit {
     private toastController: ToastController,
     private fb : FormBuilder,
     private toDoService : ToDoService,
-    
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   task:Tasks = {
     name : '',
     description : '',
-    category : this.category,
+    category : this.formModal.value,
     status : false
   };
 
@@ -54,8 +54,7 @@ export class ToDoModalComponent  implements OnInit {
     if(this.task.name.length === 0) return;
     this.newTask.emit(this.task);
 
-    console.log(this.task);
-    this.task = { name : '', description : '', category : this.category, status : false};
+    this.task = { name : '', description : '', category :  this.formModal.value, status : false};
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {

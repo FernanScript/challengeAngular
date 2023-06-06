@@ -1,7 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IonicSlides } from '@ionic/angular';
 import { register } from 'swiper/element/bundle';
 import { Tasks } from '../../interfaces/task.interface';
+import { Categories } from '../../interfaces/category.interface';
+import { ToDoService } from '../../services/to-do.service';
 register()
 @Component({
   selector: 'to-do-cards-earrings',
@@ -10,7 +11,7 @@ register()
 })
 export class ToDoCardsEarringsComponent  implements OnInit {
 
-  constructor() { }
+  constructor ( private service : ToDoService ) {}
 
   title : string = 'Hacer ejercicio';
   titleDescription : string = 'Descripción:'
@@ -22,8 +23,12 @@ export class ToDoCardsEarringsComponent  implements OnInit {
   @Input()
   public showTasks !: Tasks[];
 
-  ngOnInit() {}
+  ngOnInit() {
+    
+  }
 
-  
+  get categoryColor():Categories[] {
+    return this.service.category;
+  }
 
 }

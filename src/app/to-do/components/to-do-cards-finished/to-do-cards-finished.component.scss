@@ -6,6 +6,19 @@
     text-decoration:line-through;
 }
 
-ion-card {
-    border-bottom: 5px solid rgb(255, 88, 88);
+.categoryUni {
+    // color de categoría Universidad
+    border-left: 5px solid #b469fa;
+}
+.categoryTra {
+    // color de categoría Trabajo
+    border-left: 5px solid #fa9c69;
+}
+.categoryCom {
+    // color de categoría Compras
+    border-left: 5px solid #69faca;
+}
+.categoryCas {
+    // color de categoría Casa
+    border-left: 5px solid #e4fa69;
 }

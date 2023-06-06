@@ -3,7 +3,7 @@ import { Categories } from "./category.interface";
 export interface Tasks {
     name : string;
     description : string;
-    category ?: Categories[];
+    category : Categories;
     fechaFin ?: Date;
     status ?: boolean;
 }

@@ -5,19 +5,24 @@
 </div>
 
 <div *ngFor="let task of showTasks" >
-  <ion-card *ngIf="task.status === true">
-    <ion-card-header>
-      <p>{{task.description}}</p>
-      <ion-card-title  [ngClass]="'tachado'" class="font-title flex-card">
-        {{task.name}}
-        <ion-icon name="checkmark-circle" color="primary" size="large"></ion-icon>
-      </ion-card-title>
-    </ion-card-header>
-    
-    <hr>
-    
-    <ion-card-content>
-      <p><strong>{{dayTask}}</strong>{{hourTask}}</p>
-    </ion-card-content>    
-  </ion-card>
+  <div *ngIf="task.status === true">
+    <ion-card [ngClass]="{'categoryUni': task.category === categoryColor[0], 
+                          'categoryTra': task.category === categoryColor[1], 
+                          'categoryCom': task.category === categoryColor[2], 
+                          'categoryCas': task.category === categoryColor[3]}" >
+      <ion-card-header>
+        <p>{{task.description}}</p>
+        <ion-card-title  [ngClass]="'tachado'" class="font-title flex-card">
+          {{task.name}}
+          <ion-icon name="checkmark-circle" color="primary" size="large"></ion-icon>
+        </ion-card-title>
+      </ion-card-header>
+      
+      <hr>
+      
+      <ion-card-content>
+        <p><strong>{{dayTask}}</strong>{{hourTask}}</p>
+      </ion-card-content>    
+    </ion-card>
+  </div>
 </div>

@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
+import { Categories } from '../../interfaces/category.interface';
+import { ToDoService } from '../../services/to-do.service';
 
 @Component({
   selector: 'to-do-cards-finished',
@@ -19,10 +21,14 @@ export class ToDoCardsFinishedComponent  implements OnInit {
   hourTask : string = '11:50 AM'
   taskFinishedEmpty : string = 'No tienes tareas terminadas'
 
-  constructor() { }
+  constructor ( private service : ToDoService ) {}
 
   ngOnInit() {
    
+  }
+
+  get categoryColor():Categories[] {
+    return this.service.category;
   }
 
 }

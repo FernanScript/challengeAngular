@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
-// import { StorageService } from 'ngx-webstorage-service';
 import { Tasks } from '../interfaces/task.interface';
 import { Categories } from '../interfaces/category.interface';
+import { tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
 export class ToDoService {
-  // constructor(private localStorage: StorageService) { }
 
   private _category : Categories[] = [
     Categories.Universidad,
@@ -14,6 +13,10 @@ export class ToDoService {
     Categories.Compras,
     Categories.Casa
   ];
+
+  constructor() {
+    this.loadStorage();
+  }
 
   get category() : Categories[] {
     return [...this._category];
@@ -24,11 +27,23 @@ export class ToDoService {
   addTask(task:Tasks):void {
       const newTask:Tasks = {...task};
       this.toDo.push(newTask);
+      this.safeTasksData()
   }
 
-  // addTask():void {
-  //   const newTask:Tasks = this.localStorage.get('tasks') || [];
-  //   this.toDo.push(newTask);
-  //   this.localStorage.set('tasks',newTask)
-  // }
+   safeTasksData():void {
+    localStorage.setItem('formTaskData', JSON.stringify(this.toDo));
+  }
+
+  deleteTasksData():void {
+    // NO FUNCIONAN
+    // localStorage.removeItem(JSON.stringify(task));
+    // localStorage.removeItem(JSON.stringify(this.toDo));
+    // localStorage.clear();
+  }
+
+  private loadStorage():void {
+    if( !localStorage.getItem('formTaskData')) return;
+
+    this.toDo = JSON.parse(localStorage.getItem('formTaskData')!);
+  }
 }

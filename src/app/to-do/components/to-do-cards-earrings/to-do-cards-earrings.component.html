@@ -5,21 +5,27 @@
 </div>
 <swiper-container>
   <swiper-slide *ngFor="let taskToDO of showTasks">
-    <ion-card *ngIf="taskToDO.status === false" class="container-card-p">
-      <ion-card-header>
-        <ion-card-subtitle>{{dayTask}}</ion-card-subtitle>
-        <ion-card-title class="font-title flex-card">
-          {{taskToDO.name}}
-        </ion-card-title>
-      </ion-card-header>
-      
-      <hr>
-      
-      <ion-card-content>
-        <p>{{titleDescription}}</p>
-        <p>{{taskToDO.description}}</p>
-      </ion-card-content>
-    </ion-card>
+    <div *ngIf="taskToDO.status === false">
+      <ion-card [ngClass]="{'categoryU': taskToDO.category === categoryColor[0], 
+                            'categoryT': taskToDO.category === categoryColor[1], 
+                            'categoryC': taskToDO.category === categoryColor[2], 
+                            'categoryCa': taskToDO.category === categoryColor[3]}"
+                class="container-card-p">
+        <ion-card-header>
+          <ion-card-subtitle>{{dayTask}}</ion-card-subtitle>
+          <ion-card-title class="font-title flex-card">
+            {{taskToDO.name}}
+          </ion-card-title>
+        </ion-card-header>
+        
+        <hr>
+        
+        <ion-card-content>
+          <p>{{titleDescription}}</p>
+          <p>{{taskToDO.description}}</p>
+        </ion-card-content>
+      </ion-card>
+    </div>
     
   </swiper-slide>
 

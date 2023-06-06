@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Tasks } from 'src/app/to-do/interfaces/task.interface';
+import { ToDoService } from 'src/app/to-do/services/to-do.service';
 
 @Component({
   selector: 'to-do-list-task',
@@ -10,7 +11,7 @@ export class ListTaskComponent  implements OnInit {
 
   taskListEmpty : string = 'Todas tus tareas apareceran aquí'
 
-  constructor() { }
+  constructor( private toDoService : ToDoService ) { }
 
   ngOnInit() {}
 
@@ -19,9 +20,11 @@ export class ListTaskComponent  implements OnInit {
 
   removeTask(i:number):void {
     this.showTasks.splice(i,1);
+    this.toDoService.deleteTasksData();
   }
 
   checkTask(task:Tasks, i:number):void {
     this.showTasks[i].status =! task.status
+    this.toDoService.safeTasksData()
   }
 }
