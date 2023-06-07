@@ -7,7 +7,7 @@ import { ToDoService } from 'src/app/to-do/services/to-do.service';
   templateUrl: './list-task.component.html',
   styleUrls: ['./list-task.component.scss'],
 })
-export class ListTaskComponent  implements OnChanges {
+export class ListTaskComponent  implements OnInit {
 
   taskListEmpty : string = 'Todas tus tareas apareceran aquí'
 
@@ -15,19 +15,19 @@ export class ListTaskComponent  implements OnChanges {
 
   ngOnInit() {}
 
-  ngOnChanges(): void {
-    this.filterTasks()
-  }
+  // ngOnChanges(): void {
+  //   this.filterTasks()
+  // }
 
   @Input()
   public showTasks !: Tasks[];
 
-  @Input()
-  filterTask !: string
+  // @Input()
+  // filterTask !: string
 
-  get listTask():Tasks[] {
-    return this.toDoService.toDo
-  }
+  // get listTask():Tasks[] {
+  //   return this.toDoService.toDo
+  // }
 
   removeTask(i:number):void {
     this.toDoService.deleteTasksData(i);
@@ -38,11 +38,11 @@ export class ListTaskComponent  implements OnChanges {
     this.toDoService.safeTasksData()
   }
 
-  filterTasks() {
-    if(this.filterTask) {
-      this.showTasks = this.listTask.filter(task => task.name.toLowerCase().includes(this.filterTask.toLowerCase()));
-    } else {
-      this.showTasks = this.listTask;
-    }
-  }
+  // filterTasks() {
+  //   if(this.filterTask) {
+  //     this.showTasks = this.listTask.filter(task => task.name.toLowerCase().includes(this.filterTask.toLowerCase()));
+  //   } else {
+  //     this.showTasks = this.listTask;
+  //   }
+  // }
 }

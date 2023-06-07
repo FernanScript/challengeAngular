@@ -3,8 +3,9 @@
   <ion-icon name="alert-circle-outline" color="primary" size="large"></ion-icon>
   <h4>{{taskEarringEmpty}}</h4>
 </div>
-<swiper-container>
-  <swiper-slide *ngFor="let taskToDO of showTasks">
+
+<div class="card-container">
+  <div *ngFor="let taskToDO of showTasks">
     <div *ngIf="taskToDO.status === false">
       <ion-card [ngClass]="{'categoryU': taskToDO.category === categoryColor[0], 
                             'categoryT': taskToDO.category === categoryColor[1], 
@@ -26,9 +27,5 @@
         </ion-card-content>
       </ion-card>
     </div>
-    
-  </swiper-slide>
-
-</swiper-container>
-
-
+  </div>
+</div>

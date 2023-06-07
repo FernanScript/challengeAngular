@@ -1,9 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { register } from 'swiper/element/bundle';
 import { Tasks } from '../../interfaces/task.interface';
 import { Categories } from '../../interfaces/category.interface';
 import { ToDoService } from '../../services/to-do.service';
-register()
+
 @Component({
   selector: 'to-do-cards-earrings',
   templateUrl: './to-do-cards-earrings.component.html',
