@@ -30,4 +30,8 @@ export class ToDoCardsEarringsComponent  implements OnInit {
     return this.service.category;
   }
 
+  get countStatus() {
+    return this.showTasks.filter(count => count.status === false).length;
+  }
+
 }

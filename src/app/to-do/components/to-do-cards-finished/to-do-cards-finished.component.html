@@ -1,5 +1,5 @@
 <!-- TAREAS TERMINADAS -->
-<div class="tasksEmpty" *ngIf="showTasks.length === 0">
+<div class="tasksEmpty" *ngIf="countStatus === 0">
   <ion-icon name="alert-circle-outline" color="primary" size="large"></ion-icon>
   <h4>{{taskFinishedEmpty}}</h4>
 </div>
@@ -21,7 +21,7 @@
       <hr>
       
       <ion-card-content>
-        <p><strong>{{dayTask}}</strong>{{hourTask}}</p>
+        <p><strong>{{ dateToDay(today.fechaFin) }}</strong> {{hourTask}}</p>
       </ion-card-content>    
     </ion-card>
   </div>

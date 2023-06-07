@@ -44,7 +44,7 @@ export class ToDoModalComponent  implements OnInit {
     name : '',
     description : '',
     category : this.formModal.value,
-    fechaFin : format(new Date(), 'dd MMMM yyyy'),
+    fechaFin : new Date(),
     status : false
   };
 
@@ -53,22 +53,22 @@ export class ToDoModalComponent  implements OnInit {
 
   emitTask():void {
 
-    if(this.task.name.length === 0) return;
+    if(this.task.name.length === 0 || this.task.description.length === 0) return;
     this.newTask.emit(this.task);
-
     console.log(this.task)
 
     this.task = { 
       name : '', 
       description : '', 
       category : this.formModal.value, 
-      fechaFin : format(new Date(), 'dd MMMM yyyy'),
+      fechaFin : new Date(),
       status : false
     };
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
-    if(this.task.name.length === 0) return;
+    // if(this.task.name.length === 0) return;
+    if(this.task.name.length === 0 || this.task.description.length === 0) return;
     const toast = await this.toastController.create({
       icon : 'checkmark-circle',
       color : 'success',

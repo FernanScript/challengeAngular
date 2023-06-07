@@ -43,8 +43,4 @@ export class ToDoService {
 
     this.toDo = JSON.parse(localStorage.getItem('formTaskData')!);
   }
-
-  searchTask(name:string):Tasks[] {
-    return this.toDo.filter( task => task.name.toLowerCase().includes(name.toLowerCase()) );
-  }
 }

@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
 import { Categories } from '../../interfaces/category.interface';
 import { ToDoService } from '../../services/to-do.service';
+import { format, isDate, isToday, isTomorrow, isYesterday } from 'date-fns';
 
 @Component({
   selector: 'to-do-cards-finished',
@@ -15,6 +16,12 @@ export class ToDoCardsFinishedComponent  implements OnInit {
 
   tachado : boolean = false;
 
+  today : Tasks = {
+    name : '',
+    description : '',
+    fechaFin : new Date()
+  }
+
   title : string = 'Hacer ejercicio';
   description : string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati';
   dayTask : string = '15 mayo';
@@ -24,11 +31,27 @@ export class ToDoCardsFinishedComponent  implements OnInit {
   constructor ( private service : ToDoService ) {}
 
   ngOnInit() {
-   
   }
 
   get categoryColor():Categories[] {
     return this.service.category;
+  }
+
+  dateToDay(date: Date): string {
+
+    if (isToday(date)) {
+      return 'hoy';
+    } else if (isTomorrow(date)) {
+      return 'mañana';
+    } else if (isYesterday(date)) {
+      return 'ayer';
+    } else {
+      return format(date, 'dd MMMM yyyy');
+    }
+  }
+
+  get countStatus() {
+    return this.showTasks.filter(count => count.status === true).length;
   }
 
 }

@@ -19,4 +19,12 @@ export class ToDoEarringComponent  implements OnInit {
     return [...this.taskService.toDo];
   }
 
+  // searchTask(name:string):Tasks[] {
+  //   return this.toDo.filter( task => task.name.toLowerCase().includes(name.toLowerCase()) );
+  // }
+
+  get countStatus() {
+    return this.task.filter(count => count.status === false).length;
+  }
+
 }

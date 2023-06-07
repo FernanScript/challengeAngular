@@ -1,5 +1,5 @@
 <!-- TAREAS PENDIENTES -->
-<div class="tasksEmpty" *ngIf="showTasks.length === 0">
+<div class="tasksEmpty" *ngIf="countStatus === 0">
   <ion-icon name="alert-circle-outline" color="primary" size="large"></ion-icon>
   <h4>{{taskEarringEmpty}}</h4>
 </div>
@@ -13,10 +13,10 @@
                             'categoryCa': taskToDO.category === categoryColor[3]}"
                 class="container-card-p">
         <ion-card-header>
-          <ion-card-subtitle>{{taskToDO.fechaFin}}</ion-card-subtitle>
           <ion-card-title class="font-title flex-card">
             {{taskToDO.name}}
           </ion-card-title>
+          <ion-card-subtitle>{{taskToDO.fechaFin}}</ion-card-subtitle>
         </ion-card-header>
         
         <hr>

@@ -1,4 +1,12 @@
-<ion-item-sliding *ngFor="let listTask of showTasks; let i = index">
+<ion-searchbar 
+    class="searchTask" 
+    placeholder="Buscar..."
+    inputmode="text"
+    [(ngModel)]="searchTerm"
+    >
+</ion-searchbar>
+
+<ion-item-sliding *ngFor="let listTask of showTasks | filter:searchTerm; let i = index">
   <ion-item class="containerList">
     <ion-checkbox slot="start" [checked]="listTask.status"></ion-checkbox>
     <div>
