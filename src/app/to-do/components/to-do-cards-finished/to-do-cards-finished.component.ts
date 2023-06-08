@@ -3,6 +3,7 @@ import { Tasks } from '../../interfaces/task.interface';
 import { Categories } from '../../interfaces/category.interface';
 import { ToDoService } from '../../services/to-do.service';
 import { format, isToday, isTomorrow, isYesterday } from 'date-fns';
+import * as moment from 'moment';
 
 @Component({
   selector: 'to-do-cards-finished',
@@ -17,12 +18,6 @@ export class ToDoCardsFinishedComponent  implements OnInit {
   @Input()
   public showTasks !: Tasks[];
 
-  today : Tasks = {
-    name : '',
-    description : '',
-    fechaFin : new Date()
-  }
-
   constructor ( private service : ToDoService ) {}
 
   ngOnInit() {}
@@ -31,15 +26,18 @@ export class ToDoCardsFinishedComponent  implements OnInit {
     return this.service.category;
   }
 
-  dateToDay(date:Date): string {
-    if (isToday(date)) {
+  dateToDay(date: Date): string {
+    const today = moment().startOf('day');
+    const dayString = moment(date).startOf('day');
+  
+    if (dayString.isSame(today, 'd')) {
       return 'Hoy';
-    } else if (isTomorrow(date)) {
+    } else if (dayString.isSame(today.clone().add(1, 'd'), 'd')) {
       return 'Mañana';
-    } else if (isYesterday(date)) {
+    } else if (dayString.isSame(today.clone().subtract(1, 'd'), 'd')) {
       return 'Ayer';
     } else {
-      return format(date, 'MMMM d');
+      return moment(date).format('MMMM D');
     }
   }
 

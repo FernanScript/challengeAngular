@@ -15,13 +15,15 @@
           {{task.name}}
           <ion-icon name="checkmark-circle" color="primary" size="large"></ion-icon>
         </ion-card-title>
-        <p class="description-finished">{{task.description}}</p>
+        <p class="description-finished cropText">{{task.description}}</p>
       </ion-card-header>
       
       <hr>
       
       <ion-card-content>
-        <p><strong>{{task.fechaFin | date}} </strong>{{task.fechaFin | date:'shortTime'}}</p>
+        <p>
+          <strong>{{dateToDay(task.fechaFin) }} </strong>{{task.fechaFin | date:'shortTime'}}
+        </p>
       </ion-card-content>
     </ion-card>
   </div>

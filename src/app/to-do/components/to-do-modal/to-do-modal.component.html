@@ -10,7 +10,6 @@
           [(ngModel)]="task.name" [ngModelOptions]="{standalone: true}"
           class="margin-input"
           [label]="titleTask" 
-          required
           label-placement="floating" 
           fill="outline" 
           [placeholder]="placeholderTask">
@@ -24,7 +23,6 @@
           [(ngModel)]="task.description" [ngModelOptions]="{standalone: true}"
           [label]="descriptionTask" 
           labelPlacement="floating" 
-          required
           fill="outline" 
           [placeholder]="descriptionText">
         </ion-textarea>

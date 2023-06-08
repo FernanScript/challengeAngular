@@ -13,8 +13,6 @@ import { ToDoModalComponent } from '../../components/to-do-modal/to-do-modal.com
 import { ToDoCardsEarringsComponent } from '../../components/to-do-cards-earrings/to-do-cards-earrings.component';
 import { ToDoCardsFinishedComponent } from '../../components/to-do-cards-finished/to-do-cards-finished.component';
 
-import { DateTransformPipe } from '../../pipes/date-transform.pipe';
-
 @NgModule({
   imports: [
     CommonModule,
@@ -30,8 +28,7 @@ import { DateTransformPipe } from '../../pipes/date-transform.pipe';
     ToDoFinishedComponent,
     ToDoModalComponent,
     ToDoCardsEarringsComponent,
-    ToDoCardsFinishedComponent,
-    DateTransformPipe
+    ToDoCardsFinishedComponent
   ],
   schemas : [
     CUSTOM_ELEMENTS_SCHEMA
