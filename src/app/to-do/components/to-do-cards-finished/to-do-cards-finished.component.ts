@@ -1,8 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Tasks } from '../../interfaces/task.interface';
 import { Categories } from '../../interfaces/category.interface';
 import { ToDoService } from '../../services/to-do.service';
-import { format, isDate, isToday, isTomorrow, isYesterday } from 'date-fns';
+import { addDays, format, isDate, isToday, isTomorrow, isYesterday, parseISO, subDays } from 'date-fns';
+import { DatePipeConfig } from '@angular/common';
 
 @Component({
   selector: 'to-do-cards-finished',
@@ -22,10 +23,6 @@ export class ToDoCardsFinishedComponent  implements OnInit {
     fechaFin : new Date()
   }
 
-  title : string = 'Hacer ejercicio';
-  description : string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati';
-  dayTask : string = '15 mayo';
-  hourTask : string = '11:50 AM'
   taskFinishedEmpty : string = 'No tienes tareas terminadas'
 
   constructor ( private service : ToDoService ) {}
@@ -37,16 +34,15 @@ export class ToDoCardsFinishedComponent  implements OnInit {
     return this.service.category;
   }
 
-  dateToDay(date: Date): string {
-
+  dateToDay(date:Date): string {
     if (isToday(date)) {
-      return 'hoy';
+      return 'Hoy';
     } else if (isTomorrow(date)) {
-      return 'mañana';
+      return 'Mañana';
     } else if (isYesterday(date)) {
-      return 'ayer';
+      return 'Ayer';
     } else {
-      return format(date, 'dd MMMM yyyy');
+      return format(date, 'dd MMMM yyyy HH:mm a');
     }
   }
 

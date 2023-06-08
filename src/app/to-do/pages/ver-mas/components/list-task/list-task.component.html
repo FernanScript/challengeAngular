@@ -13,7 +13,7 @@
       <p class="categoryName">{{listTask.category}}</p>
       <ion-row class="flex-list">
         <ion-label [ngClass]="{'tachado': listTask.status === true}">{{listTask.name}}</ion-label>
-        <p class="date-list" *ngIf="listTask.status === true">{{listTask.fechaFin}}</p>
+        <p class="date-list" *ngIf="listTask.status === true">{{listTask.fechaFin | date:'short'}}</p>
       </ion-row>
     </div>
   </ion-item>

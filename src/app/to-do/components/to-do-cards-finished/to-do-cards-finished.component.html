@@ -11,17 +11,17 @@
                           'categoryCom': task.category === categoryColor[2], 
                           'categoryCas': task.category === categoryColor[3]}" >
       <ion-card-header>
-        <p>{{task.description}}</p>
         <ion-card-title  [ngClass]="'tachado'" class="font-title flex-card">
           {{task.name}}
           <ion-icon name="checkmark-circle" color="primary" size="large"></ion-icon>
         </ion-card-title>
+        <p class="description-finished">{{task.description}}</p>
       </ion-card-header>
       
       <hr>
       
       <ion-card-content>
-        <p><strong>{{ dateToDay(today.fechaFin) }}</strong> {{hourTask}}</p>
+        <p><strong>{{dateToDay(today.fechaFin)}} </strong>{{task.fechaFin | date:'shortTime'}}</p>
       </ion-card-content>    
     </ion-card>
   </div>
