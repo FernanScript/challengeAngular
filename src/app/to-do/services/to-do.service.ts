@@ -29,7 +29,7 @@ export class ToDoService {
       this.safeTasksData()
   }
 
-   safeTasksData():void {
+  safeTasksData():void {
     localStorage.setItem('formTaskData', JSON.stringify(this.toDo));
   }
 
@@ -43,4 +43,5 @@ export class ToDoService {
 
     this.toDo = JSON.parse(localStorage.getItem('formTaskData')!);
   }
+
 }

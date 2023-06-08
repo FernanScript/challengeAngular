@@ -10,21 +10,15 @@ import { ToDoService } from '../../services/to-do.service';
 })
 export class ToDoCardsEarringsComponent  implements OnInit {
 
-  constructor ( private service : ToDoService ) {}
-
-  title : string = 'Hacer ejercicio';
-  titleDescription : string = 'Descripción:'
-  description : string = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Facere cum quae dolor obcaecati';
-  dayTask : string = '15 mayo';
-  hourTask : string = '11:50 AM'
+  titleDescription : string = 'Descripción:';
   taskEarringEmpty : string = 'No tienes tareas pendientes'
+
+  constructor ( private service : ToDoService ) {}
 
   @Input()
   public showTasks !: Tasks[];
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   get categoryColor():Categories[] {
     return this.service.category;

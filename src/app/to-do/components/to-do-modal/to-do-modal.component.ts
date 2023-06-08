@@ -4,8 +4,6 @@ import { ToastController } from '@ionic/angular';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToDoService } from '../../services/to-do.service';
 import { Categories } from '../../interfaces/category.interface';
-import { format, getDay, getMonth, getYear, isDate } from 'date-fns';
-import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'to-do-modal',
@@ -15,7 +13,7 @@ import { formatDate } from '@angular/common';
 export class ToDoModalComponent  implements OnInit {
 
   public formModal : FormGroup = this.fb.group({
-    // category : ['', Validators.required],
+    category : ['', Validators.required],
     date : ['', Validators.required]
   });
 
@@ -33,12 +31,9 @@ export class ToDoModalComponent  implements OnInit {
     private toastController: ToastController,
     private fb : FormBuilder,
     private toDoService : ToDoService,
-  ) {
-    
-  }
+  ) {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   task:Tasks = {
     name : '',
@@ -52,10 +47,8 @@ export class ToDoModalComponent  implements OnInit {
   newTask = new EventEmitter<Tasks>();
 
   emitTask():void {
-
     if(this.task.name.length === 0 || this.task.description.length === 0) return;
     this.newTask.emit(this.task);
-    console.log(this.task)
 
     this.task = { 
       name : '', 
@@ -67,7 +60,6 @@ export class ToDoModalComponent  implements OnInit {
   }
 
   async presentToast(position: 'top' | 'middle' | 'bottom') {
-    // if(this.task.name.length === 0) return;
     if(this.task.name.length === 0 || this.task.description.length === 0) return;
     const toast = await this.toastController.create({
       icon : 'checkmark-circle',
@@ -79,12 +71,6 @@ export class ToDoModalComponent  implements OnInit {
 
     await toast.present();
   }
-
-  // private emptyFields() {
-  //   if(this.task.name.length === 0 ){
-  //     return;
-  //   } 
-  // }
 
   get category():Categories[] {
     return this.toDoService.category;

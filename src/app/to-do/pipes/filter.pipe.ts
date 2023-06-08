@@ -5,15 +5,15 @@ import { Tasks } from '../interfaces/task.interface';
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
-  transform(items: Tasks[], searchTerm: string): Tasks[] {
-    if (!items || !searchTerm) {
+  transform(items: Tasks[], searchTask: string): Tasks[] {
+    if (!items || !searchTask) {
       return items;
     }
 
-    searchTerm = searchTerm.toLowerCase();
+    searchTask = searchTask.toLowerCase();
 
     return items.filter(item => {
-      return item.name.toLowerCase().includes(searchTerm);
+      return item.name.toLowerCase().includes(searchTask);
     });
   }
 }

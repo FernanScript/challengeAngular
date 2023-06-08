@@ -4,8 +4,7 @@ import { Tasks } from '../../interfaces/task.interface';
 
 @Component({
   selector: 'to-do-finished',
-  templateUrl: './to-do-finished.component.html',
-  styleUrls: ['./to-do-finished.component.scss'],
+  templateUrl: './to-do-finished.component.html'
 })
 export class ToDoFinishedComponent  implements OnInit {
 
@@ -13,12 +12,10 @@ export class ToDoFinishedComponent  implements OnInit {
 
   constructor( private taskService : ToDoService ) { }
 
-  ngOnInit() {
-    
-  }
+  ngOnInit() {}
 
   @Input()
-  public taskStatus : Task[] = []
+  public taskStatus : Task[] = [];
 
   get task():Tasks[] {
     return [...this.taskService.toDo];

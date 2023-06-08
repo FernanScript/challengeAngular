@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Tasks } from 'src/app/to-do/interfaces/task.interface';
 import { ToDoService } from 'src/app/to-do/services/to-do.service';
 
@@ -9,13 +9,12 @@ import { ToDoService } from 'src/app/to-do/services/to-do.service';
 })
 export class ListTaskComponent  implements OnInit {
 
-  taskListEmpty : string = 'Todas tus tareas apareceran aquí'
-  searchTerm !: string
+  taskListEmpty : string = 'Todas tus tareas apareceran aquí';
+  searchTask !: string;
 
   constructor( private toDoService : ToDoService ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   @Input()
   public showTasks !: Tasks[];
@@ -28,4 +27,5 @@ export class ListTaskComponent  implements OnInit {
     this.showTasks[i].status =! task.status
     this.toDoService.safeTasksData()
   }
+
 }

@@ -7,9 +7,7 @@
     border-radius: 2rem;
 }
 
-.margin-input{
-    margin-top: 1rem;
-}
+.margin-input{ margin-top: 1rem; }
 
 .container-form{
     display: flex;
@@ -17,9 +15,7 @@
     gap: 1rem;
 }
 
-ion-modal {
-    --height: auto;
-}
+ion-modal { --height: auto; }
 
 h2{
     text-align: center;
@@ -32,12 +28,11 @@ h2{
     justify-content: space-around;
 }
 
-.btn-modal{
-    width: 8rem;
-}
+.btn-modal{ width: 8rem; }
 
 .input-date{
-    background-color: #3880ff;
-    border-radius: .5rem;
-    padding: 0 1rem;
+    border: none;
+    padding: .5rem;
+    border-radius: .3rem;
+    width: 60%;
 }

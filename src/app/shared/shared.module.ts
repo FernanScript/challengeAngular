@@ -1,9 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+
+import { BtnVerMasComponent } from './components/btn-ver-mas/btn-ver-mas.component';
 import { ToDoClockComponent } from './components/to-do-clock/to-do-clock.component';
 
 import { IonicModule } from '@ionic/angular';
-import { BtnVerMasComponent } from './components/btn-ver-mas/btn-ver-mas.component';
 import { RouterModule } from '@angular/router';
 
 

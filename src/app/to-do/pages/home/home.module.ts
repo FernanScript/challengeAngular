@@ -1,19 +1,19 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-
 import { IonicModule } from '@ionic/angular';
-
 import { HomePageRoutingModule } from './home-routing.module';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 import { HomePage } from './home.page';
+
 import { ToDoEarringComponent } from '../../components/to-do-earrings/to-do-earring.component';
 import { ToDoFinishedComponent } from '../../components/to-do-finished/to-do-finished.component';
 import { ToDoModalComponent } from '../../components/to-do-modal/to-do-modal.component';
-import { SharedModule } from 'src/app/shared/shared.module';
 import { ToDoCardsEarringsComponent } from '../../components/to-do-cards-earrings/to-do-cards-earrings.component';
 import { ToDoCardsFinishedComponent } from '../../components/to-do-cards-finished/to-do-cards-finished.component';
+
+import { DateTransformPipe } from '../../pipes/date-transform.pipe';
 
 @NgModule({
   imports: [
@@ -30,7 +30,8 @@ import { ToDoCardsFinishedComponent } from '../../components/to-do-cards-finishe
     ToDoFinishedComponent,
     ToDoModalComponent,
     ToDoCardsEarringsComponent,
-    ToDoCardsFinishedComponent
+    ToDoCardsFinishedComponent,
+    DateTransformPipe
   ],
   schemas : [
     CUSTOM_ELEMENTS_SCHEMA

@@ -4,15 +4,13 @@ import { ToDoService } from '../../services/to-do.service';
 
 @Component({
   selector: 'app-home',
-  templateUrl: './home.page.html',
-  styleUrls: ['./home.page.scss'],
+  templateUrl: './home.page.html'
 })
 export class HomePage implements OnInit {
 
   constructor( private taskService : ToDoService ) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   addNewTasks(task:Tasks):void {
     this.taskService.addTask(task);

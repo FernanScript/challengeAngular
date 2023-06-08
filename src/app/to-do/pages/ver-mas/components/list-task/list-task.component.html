@@ -2,17 +2,17 @@
     class="searchTask" 
     placeholder="Buscar..."
     inputmode="text"
-    [(ngModel)]="searchTerm"
+    [(ngModel)]="searchTask"
     >
 </ion-searchbar>
 
-<ion-item-sliding *ngFor="let listTask of showTasks | filter:searchTerm; let i = index">
+<ion-item-sliding *ngFor="let listTask of showTasks | filter:searchTask; let i = index">
   <ion-item class="containerList">
     <ion-checkbox slot="start" [checked]="listTask.status"></ion-checkbox>
     <div>
       <p class="categoryName">{{listTask.category}}</p>
       <ion-row class="flex-list">
-        <ion-label [ngClass]="{'tachado': listTask.status === true}">{{listTask.name}}</ion-label>
+        <ion-text [ngClass]="{'tachado': listTask.status === true}">{{listTask.name}}</ion-text>
         <p class="date-list" *ngIf="listTask.status === true">{{listTask.fechaFin | date:'short'}}</p>
       </ion-row>
     </div>

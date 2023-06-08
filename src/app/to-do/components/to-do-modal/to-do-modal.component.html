@@ -29,12 +29,18 @@
           [placeholder]="descriptionText">
         </ion-textarea>
 
-        <ion-input 
-          type="datetime-local" 
-          [(ngModel)]="task.fechaFin" 
-          [ngModelOptions]="{standalone: true}"
-          required>
-        </ion-input>
+        <ion-item>
+          <ion-label>
+            Fecha y hora
+          </ion-label>
+          <input 
+            class="input-date"
+            value="2023-06-09T08:30"
+            type="datetime-local"
+            [(ngModel)]="task.fechaFin"
+            [ngModelOptions]="{standalone: true}"
+            required/>
+        </ion-item>
 
         <div class="container-btn">
           <ion-button class="btn-modal" (click)="modal.dismiss()" fill="outline">{{btnModalCancelar}}</ion-button>
